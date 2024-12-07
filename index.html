@@ -5,7 +5,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="assets/css/styles.css">
-
+        <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+        </script>
+        <script type="text/javascript">
+            function sendMail(){
+                (function(){
+            emailjs.init("L_cGG0J2E9c5LrmNX");
+                })();
+            
+            var params={
+                from_name:document.querySelector("#fullname").value,
+                email_id:document.querySelector("#email").value,
+                message:document.querySelector("#message").value,
+            };
+            var serviceID="service_ck9mp8r";
+            var templateID="template_i5iiw5o";
+            emailjs.send(serviceID,templateID,params)
+            .then(res=>{
+                  alert("Mail sent succesfully");
+            })
+            .catch();
+        }
+         </script>
         <!-- =====BOX ICONS===== -->
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
@@ -26,7 +48,7 @@
                         <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
                         <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
                         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                        <li class="nav__item"><a href="https://github.com/LohiyaH/Resume" target="_blank" style="color: black;" nav__link">Resume</a></li>
+                        <li class="nav__item"><a href="https://drive.google.com/file/d/1h7ft42102vjuhT3lhzEVmzdOOfJut8UP/view?usp=sharing" target="_blank" style="color: black;" nav__link">Resume</a></li>
                     </ul>
                 </div>
 
@@ -214,19 +236,12 @@
                     <a href="https://github.com/LohiyaH/Data_Analytics" target="_blank" class="work__img">
                         <img src="assets/img/pro_2.png" alt="Image not found">
                     </a>
-                    <!--<a href="" class="work__img">
-                        <img src="assets/img/work3.jpg" alt="">
+                    <a href="https://github.com/LohiyaH/Food_Donation_App" target="_blank" class="work__img">
+                        <img src="pro_3.png" alt="Image not found">
                     </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work4.jpg" alt="">
+                    <a href="https://github.com/LohiyaH/Dataset_Summariser" target="_blank" class="work__img">
+                        <img src="assets/img/pro_4.png" alt="Image not found">
                     </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work5.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work6.jpg" alt="">
-                    </a>
-                -->
                 </div>
             </section>
 
@@ -235,12 +250,11 @@
                 <h2 class="section-title">Contact</h2>
 
                 <div class="contact__container bd-grid">
-                    <form action="" class="contact__form">
-                        <input type="text" placeholder="Name" class="contact__input">
-                        <input type="mail" placeholder="Email" class="contact__input">
-                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                        <input type="button" value="Submit" class="contact__button button">
-                    </form>
+                    
+                        <input name="name" id="fullname" type="text" placeholder="Name" class="contact__input">
+                        <input name="email" id="email" type="email" placeholder="Email" class="contact__input">
+                        <textarea name="msg" id="message" placeholder="Message" cols="0" rows="10" class="contact__input"></textarea>
+                        <button onclick="sendMail()" type="submit" class="contact__button button">Submit</button>
                 </div>
             </section>
         </main>
@@ -255,7 +269,7 @@
         <!--===== SCROLL REVEAL =====-->
         <script src="https://unpkg.com/scrollreveal"></script>
 
-        <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js"></script>
+        <script type="text/javascript" src="assets/js/main.js"></script>
+        <script type="text/javascript" src="node_modules/@emailjs/browser/dist/email.js"></script>
     </body>
 </html>
